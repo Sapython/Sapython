@@ -19,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   currentHover: boolean = false;
   cursor: any = '';
   innerCursor: any = '';
-  
   morphBorder(element: HTMLElement) {}
   ngOnInit(): void {
     this.cursor = document.getElementById('cursor') as HTMLElement;

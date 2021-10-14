@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +7,7 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  a:any=""
   // @ViewChild('nav', {static: false}) nav: any;
   // scrollAmount: number=0;
   // constructor() {
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit {
   //   }
   // }
   ngOnInit(): void {
+    
   }
 
 }

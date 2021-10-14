@@ -1,12 +1,33 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, Inject, Injectable, InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import * as Rollbar from 'rollbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './customerPanel/main/home/home.component';
 import { ComponentsModule } from './customerPanel/Components/components.module';
+
+const rollbarConfig = {
+  accessToken: '190ee0d852464fc696c6356fa9de0941',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+};
+
+@Injectable()
+export class RollbarErrorHandler implements ErrorHandler {
+  constructor(@Inject(RollbarService) private rollbar: Rollbar) {}
+
+  handleError(err:any) : void {
+    this.rollbar.error(err.originalError || err);
+  }
+}
+
+export function rollbarFactory() {
+  return new Rollbar(rollbarConfig);
+}
+
+export const RollbarService = new InjectionToken<Rollbar>('rollbar');
 
 @NgModule({
   declarations: [
@@ -25,7 +46,8 @@ import { ComponentsModule } from './customerPanel/Components/components.module';
     }),
     ComponentsModule,
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: RollbarErrorHandler },
+    { provide: RollbarService, useFactory: rollbarFactory }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
