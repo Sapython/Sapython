@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@font-face {
+    font-family: Vintage;
+    src: url(assets/fonts/Vintage_Modern.woff) format("opentype");
+}
+
+:root {
+    --primary-color:#f0506e;
+    --secondary-color:#0f6ecd;
+    --tertiary-color:#f2f2f2;
+    --success-color:#32d296;
+    --info-color:#00b0ff;
+    --warning-color:#ffd166;
+    --danger-color:#ff4e50;
+    --primaryBgColor: #1b202a;
+    --secondaryBgColor: #383e4b;
+    --tertiaryBgColor: #2b303a;
+    --extraDarkBgColor: #12151b;
+    --palletOne:#748AB5;
+    --palletTwo:#4B5975;
+    --palletThree:#1B202A;
+    --palletFour:#222936;
+    --palletFive:#212733;
+    --primaryText:#f2f2f2;
+    --secondaryText:#fee7b1;
+    --tertiaryText:#fff;
+    --textGrey:#595959;
+    --fontLogo: 'Vintage';
+    --fontPrimary:'Lato', sans-serif;
+    --fontSecondary: 'Noto Sans Mono', monospace;
+    transition: background, color .2s ease-in-out;
+    cursor:none;
+}
+
+@media screen and (prefers-color-scheme: light) {
+    :root {
+        --primary-color:#f0506e;
+        --secondary-color:#0f6ecd;
+        --tertiary-color:#f2f2f2;
+        --success-color:#32d296;
+        --info-color:#00b0ff;
+        --warning-color:#ffd166;
+        --danger-color:#ff4e50;
+        --primaryBgColor: #383e4b;
+    }
+}
+body{
+    overflow-x: hidden;
+    background-color: var(--primaryBgColor);
+}

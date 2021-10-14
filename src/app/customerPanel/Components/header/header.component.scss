@@ -1,0 +1,65 @@
+// Animtions
+
+// Animtions end
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--primaryBgColor);
+  padding: 10px;
+  padding-top: 20px;
+  color: white;
+  z-index:100;
+  width: 100vw;
+  div {
+    width: 75vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    div {
+      width: 50px;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    input[type="search"] {
+      width: 300px;
+      height: 30px;
+      border-radius: 5px;
+      border: none;
+      padding: 5px;
+      background-color: #2d3444;
+      color: white;
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      margin-left: 20px;
+      li {
+        list-style: none;
+        a {
+          color: white;
+          text-decoration: none;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+.scrolled {
+  position: sticky;
+  top: 0;
+  background-color: var(--extraDarkBgColor);
+  animation: showHeader 0.5s linear;
+}
+#logo {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+#logo > p {
+  font-size: 20px;
+  font-family: Vintage;
+}
