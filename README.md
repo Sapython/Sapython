@@ -1,7 +1,7 @@
 # Sapython
 #### My personal portfolio used to showcase my abilities with web frameworks and it's related technologies.
 
-<a href="https://sapython.me/" target="_blank > [![Portofolio](https://raw.githubusercontent.com/Sapython/Sapython/master/src/assets/readmeImages/mywebsiteButton.png)]</a>
+<a href="https://sapython.me/" target="_blank ><img src="https://raw.githubusercontent.com/Sapython/Sapython/master/src/assets/readmeImages/mywebsiteButton.png"></a>
 
 
 [![Saptam's GitHub stats](https://github-readme-stats.vercel.app/api?username=sapython&theme=material-palenight&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
