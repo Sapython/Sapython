@@ -1,5 +1,6 @@
 # Sapython
 #### My personal portfolio used to showcase my abilities with web frameworks and it's related technologies.
+[![Saptam's GitHub stats](https://github-readme-stats.vercel.app/api?username=sapython&theme=material-palenight&show_icons=true)](https://github.com/anuraghazra/github-readme-stats)
 # 
 #### You can visit my portfolio [here at sapython.me](https://sapython.me/)
 #
