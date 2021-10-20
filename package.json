@@ -28,26 +28,26 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/architect": ">= 0.900 < 0.1300",
     "@angular-devkit/build-angular": "~12.2.10",
     "@angular/cli": "~12.2.10",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^16.11.1",
     "@types/three": "^0.133.1",
+    "firebase-tools": "^8.0.0 || ^9.0.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "jasmine-core": "~3.10.0",
+    "jsonc-parser": "^3.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "tailwindcss": "^2.2.16",
-    "typescript": "~4.3.5",
-    "@angular-devkit/architect": ">= 0.900 < 0.1300",
-    "firebase-tools": "^8.0.0 || ^9.0.0",
-    "fuzzy": "^0.1.3",
-    "inquirer": "^6.2.2",
-    "inquirer-autocomplete-prompt": "^1.0.1",
     "open": "^7.0.3",
-    "jsonc-parser": "^3.0.0"
+    "tailwindcss": "^2.2.16",
+    "typescript": "~4.3.5"
   }
 }
