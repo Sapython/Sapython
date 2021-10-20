@@ -9,7 +9,7 @@ export class RemoteConfigService {
   constructor(
     private error:ErrorHandlerService,
     private console:ConService,
-    private remoteConfig: AngularFireRemoteConfig,
+    // private remoteConfig: AngularFireRemoteConfig,
     ) { }
   // getRemoteConfigByKey(key:string):any{
   //   return this.remoteConfig.getValue(key);

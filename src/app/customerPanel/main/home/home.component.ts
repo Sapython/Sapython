@@ -14,10 +14,34 @@ export class HomeComponent implements OnInit {
     private rc:RemoteConfigService, // TODO: This code is the error
     private console:ConService
     ) {}
-
+  colors = [[255, 60, 125],[60, 60, 255],[60, 161, 255],[247, 182, 40],[255, 98, 84],[114, 33, 255],[77, 255, 249],[92, 255, 168]]
   ngOnInit():void {
     // this.rc.getRemoteConfigByKey(RemoteConfigEnum.projects).then((res:any)=>{
     //   this.console.log(res);
     // });
+    this.startBackgroundAnimation();
+  }
+  private startBackgroundAnimation(){
+    let bubbleContainer = document.querySelector('.bubbleContainer');
+    for (let i = 0; i < this.getRandomInt(5,6); i++){
+      bubbleContainer?.appendChild(this.createBubble());
+    }
+  }
+  private createBubble():HTMLElement{
+    const bubble = document.createElement('span');
+    bubble.classList.add('bubble');
+    bubble.style.left = this.getRandomInt(0, 100) + 'vw';
+    bubble.style.top = this.getRandomInt(0, 60) + 'vh';
+    bubble.style.animationDelay = this.getRandomInt(0, 10) + 's';
+    bubble.style.background = this.getRandomColor();
+    return bubble;
+  }
+  private getRandomInt(min:number, max:number):number{
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  private getRandomColor():string{
+    const color = this.colors[this.getRandomInt(0,2)];
+    return `rgba(${color[0]}, ${color[1]}, ${color[2]}, 0.8)`;
   }
 }
+

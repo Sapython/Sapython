@@ -11,7 +11,7 @@
     --info-color:#00b0ff;
     --warning-color:#ffd166;
     --danger-color:#ff4e50;
-    --primaryBgColor: #1b202a;
+    --primaryBgColor: 27, 32, 42;
     --secondaryBgColor: #383e4b;
     --tertiaryBgColor: #2b303a;
     --extraDarkBgColor: #12151b;
@@ -40,7 +40,7 @@
         --info-color:#00b0ff;
         --warning-color:#ffd166;
         --danger-color:#ff4e50;
-        --primaryBgColor: #383e4b;
+        --primaryBgColor: 27, 32, 42;
     }
 }
 body,html{
@@ -48,3 +48,21 @@ body,html{
     margin:0;
     padding:0;
 }
+.bubble {
+    position: absolute;
+    z-index: -5;
+    border-radius: 50%;
+    opacity:0;
+    animation: bubble 10s infinite alternate ease-in-out;
+    width: 200px;
+    height: 200px;
+    filter: blur(500px);
+    transition:all 2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .bubbleContainer{
+      overflow: hidden;
+  }
