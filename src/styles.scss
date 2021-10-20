@@ -1,68 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-    font-family: Vintage;
-    src: url(assets/fonts/Vintage_Modern.woff) format("opentype");
+  font-family: Vintage;
+  src: url(assets/fonts/Vintage_Modern.woff) format("opentype");
 }
 :root {
-    --primary-color:#f0506e;
-    --secondary-color:#0f6ecd;
-    --tertiary-color:#f2f2f2;
-    --success-color:#32d296;
-    --info-color:#00b0ff;
-    --warning-color:#ffd166;
-    --danger-color:#ff4e50;
-    --primaryBgColor: 27, 32, 42;
-    --secondaryBgColor: #383e4b;
-    --tertiaryBgColor: #2b303a;
-    --extraDarkBgColor: #12151b;
-    --palletOne:#748AB5;
-    --palletTwo:#4B5975;
-    --palletThree:#1B202A;
-    --palletFour:#222936;
-    --palletFive:#212733;
-    --primaryText:#f2f2f2;
-    --secondaryText:#fee7b1;
-    --tertiaryText:#fff;
-    --textGrey:#595959;
-    --fontLogo: 'Vintage';
-    --fontPrimary:'Lato', sans-serif;
-    --fontSecondary: 'Noto Sans Mono', monospace;
-    transition: background, color .2s ease-in-out;
-    // cursor:none;
+  --primary-color: #f0506e;
+  --secondary-color: #0f6ecd;
+  --tertiary-color: #f2f2f2;
+  --success-color: #32d296;
+  --info-color: #00b0ff;
+  --warning-color: #ffd166;
+  --danger-color: #ff4e50;
+  --primaryBgColor: 27, 32, 42;
+  --secondaryBgColor: #383e4b;
+  --tertiaryBgColor: #2b303a;
+  --extraDarkBgColor: #12151b;
+  --palletOne: #748ab5;
+  --palletTwo: #4b5975;
+  --palletThree: #1b202a;
+  --palletFour: #222936;
+  --palletFive: #212733;
+  --primaryText: #f2f2f2;
+  --secondaryText: #fee7b1;
+  --tertiaryText: #fff;
+  --textGrey: #595959;
+  --fontLogo: "Vintage";
+  --fontPrimary: "Lato", sans-serif;
+  --fontSecondary: "Noto Sans Mono", monospace;
+  transition: background, color 0.2s ease-in-out;
+  // cursor:none;
 }
 
 @media screen and (prefers-color-scheme: light) {
-    :root {
-        --primary-color:#f0506e;
-        --secondary-color:#0f6ecd;
-        --tertiary-color:#f2f2f2;
-        --success-color:#32d296;
-        --info-color:#00b0ff;
-        --warning-color:#ffd166;
-        --danger-color:#ff4e50;
-        --primaryBgColor: 27, 32, 42;
-    }
+  :root {
+    --primary-color: #f0506e;
+    --secondary-color: #0f6ecd;
+    --tertiary-color: #f2f2f2;
+    --success-color: #32d296;
+    --info-color: #00b0ff;
+    --warning-color: #ffd166;
+    --danger-color: #ff4e50;
+    --primaryBgColor: 27, 32, 42;
+  }
 }
-body,html{
-    overflow-x: hidden;
-    margin:0;
-    padding:0;
+body,
+html {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 .bubble {
-    position: absolute;
-    z-index: -5;
-    border-radius: 50%;
-    opacity:0;
-    animation: bubble 10s infinite alternate ease-in-out;
-    width: 200px;
-    height: 200px;
-    filter: blur(500px);
-    transition:all 2s ease-in-out;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .bubbleContainer{
-      overflow: hidden;
-  }
+  position: absolute;
+  z-index: -5;
+  border-radius: 50%;
+  opacity: 0;
+  animation: bubble 10s infinite alternate ease-in-out;
+  width: 200px;
+  height: 200px;
+  filter: blur(500px);
+  transition: all 2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bubbleContainer {
+  overflow: hidden;
+}

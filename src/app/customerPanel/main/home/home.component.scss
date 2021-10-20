@@ -106,7 +106,7 @@ $breakpoints: (
   // 960px
   "xl": 80em,
   // 1280px
-  "xxl": 90em // 1440px,
+  "xxl": 90em // 1440px,,,,
 );
 
 @mixin respond-above($breakpoint) {
@@ -188,7 +188,7 @@ $breakpoints: (
 
 @keyframes bubble {
   0% {
-    opacity:1;
+    opacity: 1;
     transform: scale(1);
   }
   50% {
@@ -293,99 +293,49 @@ main {
     }
   }
 }
-@media screen and (max-width:1370px){
-  main {
-    section{
-      .bgContainer{
-        div {
-          h1{
-            top:40%;
-            font-size: 3rem;
-            letter-spacing:1px;
-          }
-          h1:after,h1:before{
-            border:13px solid var(--primary-color);
-          }
-          h1:before {
-            border-color: var(--primary-color) var(--primary-color)
-              rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-            z-index: -1;
-          }
-  
-          h1:after {
-            border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--primary-color)
-              var(--primary-color);
-            box-shadow: 25px 25px 25px rgba(12, 12, 12, 0.8);
-          }
-        }
-        .words{
-          @include posCenterYvar(30vh);
-        }
-      }
-    }
+@media screen and (max-width: 1370px) {
+  .bgContainer > div > h1 {
+    top: 40%;
+    font-size: 3rem;
+    letter-spacing: 1px;
+  }
+  .bgContainer > div > h1:before,
+  .bgContainer > div > h1:after {
+    border: 13px solid var(--primary-color);
+  }
+  .bgContainer > div > h1:before {
+    border-color: var(--primary-color) var(--primary-color) rgba(0, 0, 0, 0)
+      rgba(0, 0, 0, 0);
+    z-index: -1;
+  }
+  .bgContainer > div > h1:before {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--primary-color)
+      var(--primary-color);
+    box-shadow: 25px 25px 25px rgba(12, 12, 12, 0.8);
+  }
+  .words {
+    @include posCenterYvar(30vh);
   }
 }
-@media screen and (max-width:900px){
-  main {
-    section{
-      .bgContainer{
-        div {
-          h1{
-            top:40%;
-            font-size: 2.5rem;
-            letter-spacing:1px;
-          }
-          h1:before,h1:after{
-            border:10px solid var(--primary-color);
-          }
-          h1:before {
-            border-color: var(--primary-color) var(--primary-color)
-              rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-            z-index: -1;
-          }
-  
-          h1:after {
-            border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--primary-color)
-              var(--primary-color);
-            box-shadow: 25px 25px 25px rgba(12, 12, 12, 0.8);
-          }
-        }
-        .words{
-          @include posCenterYvar(30vh);
-        }
-      }
-    }
+@media screen and (max-width: 900px) {
+  .bgContainer > div > h1 {
+    top: 40%;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+  .bgContainer > div > h1:before,
+  .bgContainer > div > h1:after {
+    border: 10px solid var(--primary-color);
   }
 }
-@media screen and (max-width:700px){
-  main {
-    section{
-      .bgContainer{
-        div {
-          h1{
-            top:40%;
-            font-size: 1.5rem;
-            letter-spacing:1px;
-          }
-          h1:before,h1:after{
-            border:6px solid var(--primary-color);
-          }
-          h1:before {
-            border-color: var(--primary-color) var(--primary-color)
-              rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
-            z-index: -1;
-          }
-  
-          h1:after {
-            border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) var(--primary-color)
-              var(--primary-color);
-            box-shadow: 25px 25px 25px rgba(12, 12, 12, 0.8);
-          }
-        }
-        .words{
-          @include posCenterYvar(30vh);
-        }
-      }
-    }
+@media screen and (max-width: 700px) {
+  .bgContainer > div > h1 {
+    top: 40%;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  .bgContainer > div > h1:before,
+  .bgContainer > div > h1:after {
+    border: 6px solid var(--primary-color);
   }
 }
