@@ -183,8 +183,9 @@ main {
   scroll-snap-type: x;
   scroll-snap-align: start;
   scroll-snap-type: x proximity;
-  section:nth-child(1) {
+  section:nth-child(1) {  
     height: 100vh;
+    background-color: var(--primaryBgColor);
     div{
       h1 {
         color: #fffbf1;

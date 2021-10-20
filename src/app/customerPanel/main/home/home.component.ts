@@ -11,13 +11,13 @@ import { RemoteConfigEnum, RemoteConfigService } from '../../core/services/remot
 export class HomeComponent implements OnInit {
   constructor(
     public dataService:DatabaseService,
-    private rc:RemoteConfigService,
+    private rc:RemoteConfigService, // TODO: This code is the error
     private console:ConService
     ) {}
 
   ngOnInit():void {
-    this.rc.getRemoteConfigByKey(RemoteConfigEnum.projects).then(res=>{
-      this.console.log(res);
-    });
+    // this.rc.getRemoteConfigByKey(RemoteConfigEnum.projects).then((res:any)=>{
+    //   this.console.log(res);
+    // });
   }
 }

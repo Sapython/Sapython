@@ -1,12 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 @font-face {
     font-family: Vintage;
     src: url(assets/fonts/Vintage_Modern.woff) format("opentype");
 }
-
 :root {
     --primary-color:#f0506e;
     --secondary-color:#0f6ecd;
@@ -47,6 +43,8 @@
         --primaryBgColor: #383e4b;
     }
 }
-body{
+body,html{
     overflow-x: hidden;
+    margin:0;
+    padding:0;
 }
