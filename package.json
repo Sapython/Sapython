@@ -14,7 +14,7 @@
     "@angular/common": "~12.2.10",
     "@angular/compiler": "~12.2.10",
     "@angular/core": "~12.2.10",
-    "@angular/fire": "^6.1.5",
+    "@angular/fire": "^7.1.1",
     "@lottiefiles/lottie-player": "^1.4.1",
     "@angular/forms": "~12.2.10",
     "@angular/platform-browser": "~12.2.10",
@@ -22,10 +22,11 @@
     "@angular/router": "~12.2.10",
     "@angular/service-worker": "~12.2.10",
     "rollbar": "^2.24.0",
-    "firebase": "^8.10.0",
+    "firebase": "^9.1.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "rxfire": "^6.0.0"
   },
   "devDependencies": {
     "@angular-devkit/architect": ">= 0.900 < 0.1300",
