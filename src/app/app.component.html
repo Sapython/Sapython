@@ -1,5 +1,4 @@
-<div id="cursor">
-</div>
-<div id="cursor-inner"></div>
-<div id="cursorClickAnimation"></div>
+<div id="cursor" *ngIf="customMouse"></div>
+<div id="cursor-inner" *ngIf="customMouse"></div>
+<div id="cursorClickAnimation" *ngIf="customMouse"></div>
 <router-outlet (activate)="setCursor()"></router-outlet>

@@ -32,7 +32,7 @@
     --fontPrimary:'Lato', sans-serif;
     --fontSecondary: 'Noto Sans Mono', monospace;
     transition: background, color .2s ease-in-out;
-    cursor:none;
+    // cursor:none;
 }
 
 @media screen and (prefers-color-scheme: light) {

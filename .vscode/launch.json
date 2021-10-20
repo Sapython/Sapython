@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ng serve",
+            "script":"ng serve",
+            "url": "http://localhost:4200/#",
+            "webRoot": "${workspaceRoot}"
+        },
+    ]
+}

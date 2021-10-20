@@ -1,3 +1,27 @@
+
+@keyframes moveBackground{
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
+@keyframes move {
+  0% {
+    transform: translate(-30%, 0);
+  }
+  50% {
+    text-shadow: 0 25px 50px rgb(0, 0, 0);
+    color: var(--primary-color)
+  }
+  100% {
+    transform: translate(30%, 0);
+  }
+}
 @keyframes tipsy {
   0% {
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
@@ -6,19 +30,162 @@
     transform: translateX(-50%) translateY(-50%) rotate(360deg);
   }
 }
+@mixin ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+      &:before {
+          @include pseudo($pos: relative);
+          width: 100%;
+          padding-top: $padding;
+      }
+  } @else {
+      padding-top: $padding;
+  }
+}
+@mixin position($position: absolute, $top: null, $right: null, $bottom: null, $left: null, $z-index: initial) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+ 
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+ 
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+ 
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+@mixin text-shorten($numLines: 1) {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+ 
+  @supports (-webkit-line-clamp: $numLines) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: $numLines;
+    -webkit-box-orient: vertical;
+  }
+}
+$breakpoints:  (
+  "xs": 25em, // 400px
+  "sm": 34em, // 544px
+  "md": 48em, // 768px
+  "lg": 60em, // 960px
+  "xl": 80em, // 1280px
+  "xxl": 90em // 1440px
+);
+ 
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+    // If the breakpoint doesn't exist in the map.
+  }
+  @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+@mixin fluid-font($min-width, $max-width, $min-font-size, $max-font-size) {
+  $unit1: unit($min-width);
+  $unit2: unit($max-width);
+  $unit3: unit($min-font-size);
+  $unit4: unit($max-font-size);
+  @if $unit1 == $unit2 and $unit1 == $unit3 and $unit1 == $unit4 {
+    & {
+      font-size: $min-font-size;
+      line-height: $min-font-size * 1.618;
+      @media screen and (min-width: $min-width) {
+        font-size: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)})
+        );
+        line-height: calc(
+          #{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+            1.618 *
+            ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)})
+        );
+      }
+      @media screen and (min-width: $max-width) {
+        font-size: $max-font-size;
+        line-height: $max-font-size * 1.618;
+      }
+    }
+  }
+}
+@mixin posCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin posCenterY{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin posCenterX{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin posCenterYvar($y) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, $y);
+}
+@mixin posCenterXvar($x) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate($x, -50%);
+}
+@mixin posCenterXvarYvar($x, $y) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate($x, -$y);
+}
+
 
 main {
   height: 500vh;
   width: 100%;
   scroll-snap-type: x;
-  // scroll-behavior: smooth;
   scroll-snap-align: start;
   scroll-snap-type: x proximity;
   section:nth-child(1) {
     height: 100vh;
     div{
-      // width:500px;
-      // height:500px;
       h1 {
         color: #fffbf1;
         text-shadow: 0 20px 25px #0b0b0c, 0 40px 60px #060607;
@@ -31,11 +198,6 @@ main {
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
-        // background-image:linear-gradient(120deg, #885dff, #6078ff);
-        // background-size: cover;
-        // color: transparent;
-        // -moz-background-clip: text;
-        // -webkit-background-clip: text;
         text-transform: uppercase;
       }
       
@@ -63,5 +225,73 @@ main {
         box-shadow: 25px 25px 25px rgba(12, 12, 12, 0.8);
       }
     }
+    h3 {
+      text-align: center;
+      color: #fffbf1;
+      @include posCenterYvar(400%);
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+    .words {
+      @include posCenterYvar(800%);
+      color: var(--primaryBgColor);
+      font-size: 0;
+      line-height: 1.5;
+      span {
+        font-size: 2rem;
+        display: inline-block;
+        animation: move 3s infinite;
+      }
+      span:nth-child(1) {
+        animation-delay: 0.5s;
+      }
+      span:nth-child(2) {
+        animation-delay: 1s;
+      }
+      span:nth-child(3) {
+        animation-delay: 1.5s;
+      }
+      span:nth-child(4) {
+        animation-delay: 2s;
+      }
+      span:nth-child(5) {
+        animation-delay: 2.5s;
+      }
+      span:nth-child(6) {
+        animation-delay: 3s;
+      }
+      span:nth-child(7) {
+        animation-delay: 3.5s;
+      }
+      span:nth-child(8) {
+        animation-delay: 3.5s;
+      }
+    }
   }
+}
+
+
+
+.words span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.words span:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.words span:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.words span:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.words span:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+.words span:nth-child(7) {
+  animation-delay: 3s;
 }
