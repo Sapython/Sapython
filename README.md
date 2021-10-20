@@ -1,5 +1,19 @@
 # Sapython
 #### My personal portfolio used to showcase my abilities with web frameworks and it's related technologies.
+
+<a href="https://sapython.me/" target="_blank" ><img width="250" style="margin-left:-15px" src="https://raw.githubusercontent.com/Sapython/Sapython/master/src/assets/readmeImages/mywebsiteButton.png"></a>
+<a href="https://github.com/Sapython/HRMS-Software" target="_blank" ><img width="250" style="margin-left:-15px" src="https://raw.githubusercontent.com/Sapython/Sapython/master/src/assets/readmeImages/HRMSbutton.png"></a>
+<a href="https://github.com/Sapython/Sapython" target="_blank" ><img width="250" style="margin-left:-15px" src="https://raw.githubusercontent.com/Sapython/Sapython/master/src/assets/readmeImages/portofolioPWAbutton.png"></a>
+
+![Saptam's GitHub stats](https://github-readme-stats.vercel.app/api?username=sapython&theme=material-palenight&show_icons=true)
+
+![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=sapython&theme=material-palenight)
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=sapython&repo=sapython&theme=material-palenight)
+
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=sapython&repo=HRMS&theme=material-palenight)
+
+___
 # 
 #### You can visit my portfolio [here at sapython.me](https://sapython.me/)
 #
