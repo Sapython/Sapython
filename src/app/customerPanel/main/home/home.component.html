@@ -3,7 +3,7 @@
     <section>
         <div class="bgContainer">
             <div>
-                <h1>KUMAR SAPTAM</h1>
+                <p class="mainTitle">Kumar Saptam</p>
             </div>
             <!-- <h3>Self Taught Programmer</h3> -->
             <div class="words">
@@ -17,11 +17,14 @@
                 <span>N</span>
             </div>
         </div>
-        <div class="bubbleContainer">
-        </div>
     </section>
-    <!-- <section>
-        <p style="font-size: 150px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus tincidunt commodo. Nunc justo nisi, vestibulum facilisis porta vestibulum, ultrices volutpat arcu. Quisque nec dui mattis, fringilla magna in, vulputate enim. Fusce ut euismod ligula, id laoreet ex. </p>
-    </section> -->
+    <button (click)="authService.loginAnonymously()">Sign in</button>
+    <section>
+        <h1  class="mv">About Me</h1>
+        <img src="./assets/authorImages/Kumar Saptam.jpg" alt="" class="mv">
+        <app-full-card class="mv"></app-full-card>
+    </section>
 </main>
+<div class="bubbleContainer">
+</div>
 <app-footer></app-footer>

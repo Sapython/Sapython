@@ -16,26 +16,33 @@ export class AppComponent implements OnInit, OnDestroy {
   mouseSubscribe = fromEvent(document.body, 'mousemove');
   mouseClickSubscribe = fromEvent(document.body, 'mousedown');
   subscribed: Element[] = [];
-  currentHover: boolean = false;
+  currentHover: boolean = true;
   cursor: any = '';
   innerCursor: any = '';
-  customMouse: boolean = false;
-  morphBorder(element: HTMLElement) {}
+  customMouse: boolean = true;
+
   ngOnInit(): void {
+    window.onmouseover=function(e) {
+      console.log(e);
+    };
     if (this.customMouse) {
       this.cursor = document.getElementById('cursor') as HTMLElement;
       this.innerCursor = document.getElementById('cursor-inner') as HTMLElement;
       let cursorClickAnimation = document.getElementById(
         'cursorClickAnimation'
       ) as HTMLElement;
+      console.log(this.cursor,this.innerCursor);
       this.mouseSubscribe.subscribe((e: any) => {
-        // console.log(e.pageX, e.pageY)
+        
         if (!this.currentHover) {
           this.cursor.style.left = +e.pageX - 25 + 'px';
           this.cursor.style.top = +e.pageY - 25 + 'px';
         }
+        
         this.innerCursor.style.left = +e.pageX - 5 + 'px';
         this.innerCursor.style.top = +e.pageY - 5 + 'px';
+        // console.log(e.pageX, e.pageY)
+        // console.log(this.innerCursor.style.left, this.innerCursor.style.top);
       });
       this.mouseClickSubscribe.subscribe((e: any) => {
         cursorClickAnimation.style.display = 'block';
@@ -47,11 +54,11 @@ export class AppComponent implements OnInit, OnDestroy {
           cursorClickAnimation.style.display = 'none';
         }, 500);
       });
-      this.clearEvents();
-      this.ngAfterContentInit();
+      this.setCursor();
     }
   }
   startMorphCursor(element: any): void {
+    console.log('element on hover', element);
     this.cursor.style.transition = 'all 0.5s ease';
     this.currentHover = true;
     if (element.classList.contains('mv-fxd')) {
@@ -96,6 +103,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscribed = [];
   }
   setCursor() {
+    console.log('Setting cursor');
     this.clearEvents();
     this.ngAfterContentInit();
   }

@@ -3,7 +3,6 @@ import {
   Inject,
   Injectable,
   InjectionToken,
-  isDevMode,
   NgModule,
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +14,7 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './customerPanel/main/home/home.component';
 import { ComponentsModule } from './customerPanel/Components/components.module';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import {provideAuth, getAuth} from '@angular/fire/auth';
 import {
   enableIndexedDbPersistence,
   getFirestore,
@@ -23,14 +23,13 @@ import {
 import { initializeApp } from 'firebase/app';
 import { provideFirebaseApp } from '@angular/fire/app';
 
-import { AngularFireRemoteConfigModule, DEFAULTS, SETTINGS } from '@angular/fire/compat/remote-config';
+import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
 
 const rollbarConfig = {
   accessToken: '190ee0d852464fc696c6356fa9de0941',
   captureUncaught: true,
   captureUnhandledRejections: true,
 };
-
 @Injectable()
 export class RollbarErrorHandler implements ErrorHandler {
   constructor(@Inject(RollbarService) private rollbar: Rollbar) {}
@@ -51,7 +50,7 @@ export const RollbarService = new InjectionToken<Rollbar>('rollbar');
   imports: [
     BrowserModule,
     ComponentsModule,
-    AngularFireRemoteConfigModule,
+    provideRemoteConfig(() => getRemoteConfig()),
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => {
@@ -60,6 +59,7 @@ export const RollbarService = new InjectionToken<Rollbar>('rollbar');
       return firestore;
     }),
     provideStorage(() => getStorage()),
+    provideAuth(() => getAuth()),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -71,12 +71,8 @@ export const RollbarService = new InjectionToken<Rollbar>('rollbar');
   providers: [
     { provide: ErrorHandler, useClass: RollbarErrorHandler },
     { provide: RollbarService, useFactory: rollbarFactory },
-    { provide: DEFAULTS, useValue: { enableAwesome: true } },
-    {
-      provide: SETTINGS,
-      useFactory: () => isDevMode() ? { minimumFetchIntervalMillis: 10_000 } : {}
-    }
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

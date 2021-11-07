@@ -27,8 +27,12 @@
   --fontLogo: "Vintage";
   --fontPrimary: "Lato", sans-serif;
   --fontSecondary: "Noto Sans Mono", monospace;
+  --fontDesigner:'Fleur De Leah', cursive;
   transition: background, color 0.2s ease-in-out;
-  // cursor:none;
+  // cursor:none !important;
+  *{
+    font-family: var(--fontPrimary);
+  }
 }
 
 @media screen and (prefers-color-scheme: light) {
@@ -49,6 +53,18 @@ html {
   margin: 0;
   padding: 0;
 }
+@keyframes bubble {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .bubble {
   position: absolute;
   z-index: -5;
@@ -66,4 +82,9 @@ html {
 }
 .bubbleContainer {
   overflow: hidden;
+  // width: 100vw;
+  // height: 100vh;
+  // position: fixed;
+  // top: 0px;
+  // left: 0px;
 }
