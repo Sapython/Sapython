@@ -36,7 +36,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/lax.js/lib/lax.min.js"
             ],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json",
