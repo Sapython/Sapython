@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
-import { ComponentsModule } from '../../Components/components.module';
+import { ComponentsModule } from '../../../Components/components.module';
 
 
 @NgModule({

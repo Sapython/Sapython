@@ -48,5 +48,8 @@ export class HomeComponent implements OnInit {
     const color = this.colors[this.getRandomInt(0,2)];
     return `rgba(${color[0]}, ${color[1]}, ${color[2]}, 0.8)`;
   }
+  public getProjects(){
+    return this.dataService.getProjects();
+  }
 }
 

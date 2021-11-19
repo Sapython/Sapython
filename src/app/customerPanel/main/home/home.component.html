@@ -1,6 +1,6 @@
 <app-header></app-header>
 <main>
-    <section>
+    <section id="feature">
         <div class="bgContainer">
             <div>
                 <p class="mainTitle">Kumar Saptam</p>
@@ -18,11 +18,11 @@
             </div>
         </div>
     </section>
-    <button (click)="authService.loginAnonymously()">Sign in</button>
-    <section>
-        <h1  class="mv">About Me</h1>
-        <img src="./assets/authorImages/Kumar Saptam.jpg" alt="" class="mv">
-        <app-full-card class="mv"></app-full-card>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="flex">
+            <app-project-card class="mv" *ngFor="let project of getProjects()" [project]="project"></app-project-card>
+        </div>
     </section>
 </main>
 <div class="bubbleContainer">

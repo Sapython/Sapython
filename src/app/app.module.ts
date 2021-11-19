@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './customerPanel/main/home/home.component';
-import { ComponentsModule } from './customerPanel/Components/components.module';
+import { ComponentsModule } from './Components/components.module';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import {provideAuth, getAuth} from '@angular/fire/auth';
 import {
@@ -24,6 +24,9 @@ import { initializeApp } from 'firebase/app';
 import { provideFirebaseApp } from '@angular/fire/app';
 
 import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatGridListModule} from '@angular/material/grid-list'; 
 
 const rollbarConfig = {
   accessToken: '190ee0d852464fc696c6356fa9de0941',
@@ -46,9 +49,13 @@ export function rollbarFactory() {
 export const RollbarService = new InjectionToken<Rollbar>('rollbar');
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
+    MatGridListModule,
     ComponentsModule,
     provideRemoteConfig(() => getRemoteConfig()),
     AppRoutingModule,
@@ -66,7 +73,7 @@ export const RollbarService = new InjectionToken<Rollbar>('rollbar');
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
-    ComponentsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: ErrorHandler, useClass: RollbarErrorHandler },

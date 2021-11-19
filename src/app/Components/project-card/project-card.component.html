@@ -1,0 +1,9 @@
+<div>
+    <li>{{project.projectName}}</li>
+    <p>{{project.projectDescription}}</p>
+    <ul>
+        <li *ngFor="let feature of project.projectFeatures">
+            <span [class]="feature.icon"></span> {{feature.name}}
+        </li>
+    </ul>
+</div>

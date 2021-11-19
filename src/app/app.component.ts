@@ -16,22 +16,22 @@ export class AppComponent implements OnInit, OnDestroy {
   mouseSubscribe = fromEvent(document.body, 'mousemove');
   mouseClickSubscribe = fromEvent(document.body, 'mousedown');
   subscribed: Element[] = [];
-  currentHover: boolean = true;
+  currentHover: boolean = false;
   cursor: any = '';
-  innerCursor: any = '';
-  customMouse: boolean = true;
+  // innerCursor: any = '';
+  customMouse: boolean =  false;
 
   ngOnInit(): void {
-    window.onmouseover=function(e) {
-      console.log(e);
-    };
+    // window.onmouseover=function(e) {
+    //   console.log(e);
+    // };
     if (this.customMouse) {
       this.cursor = document.getElementById('cursor') as HTMLElement;
-      this.innerCursor = document.getElementById('cursor-inner') as HTMLElement;
+      // this.innerCursor = document.getElementById('cursor-inner') as HTMLElement;
       let cursorClickAnimation = document.getElementById(
         'cursorClickAnimation'
       ) as HTMLElement;
-      console.log(this.cursor,this.innerCursor);
+      // console.log(this.cursor,this.innerCursor);
       this.mouseSubscribe.subscribe((e: any) => {
         
         if (!this.currentHover) {
@@ -39,8 +39,8 @@ export class AppComponent implements OnInit, OnDestroy {
           this.cursor.style.top = +e.pageY - 25 + 'px';
         }
         
-        this.innerCursor.style.left = +e.pageX - 5 + 'px';
-        this.innerCursor.style.top = +e.pageY - 5 + 'px';
+        // this.innerCursor.style.left = +e.pageX + 2 + 'px';
+        // this.innerCursor.style.top = +e.pageY + 5 + 'px';
         // console.log(e.pageX, e.pageY)
         // console.log(this.innerCursor.style.left, this.innerCursor.style.top);
       });
@@ -63,21 +63,21 @@ export class AppComponent implements OnInit, OnDestroy {
     this.currentHover = true;
     if (element.classList.contains('mv-fxd')) {
       this.cursor.style.position = 'fixed';
-      this.innerCursor.style.position = 'fixed';
+      // this.innerCursor.style.position = 'fixed';
     } else {
       this.cursor.style.position = 'absolute';
-      this.innerCursor.style.position = 'absolute';
+      // this.innerCursor.style.position = 'absolute';
     }
     this.cursor.style.left = +element.offsetLeft + 'px';
     this.cursor.style.top = +element.offsetTop + 'px';
     this.cursor.style.borderRadius = '5px';
     this.cursor.style.width = element.offsetWidth + 'px';
     this.cursor.style.height = element.offsetHeight + 'px';
-    this.innerCursor.style.transition = 'all 0.5s ease';
-    this.innerCursor.style.scale = '0.5';
+    // this.innerCursor.style.transition = 'all 0.5s ease';
+    // this.innerCursor.style.scale = '0.5';
   }
   stopMorphCursor() {
-    this.innerCursor.style.position = 'absolute';
+    // this.innerCursor.style.position = 'absolute';
     this.cursor.style.position = 'absolute';
     // console.log("Leaving",currentElement);
     this.currentHover = false;
@@ -86,15 +86,15 @@ export class AppComponent implements OnInit, OnDestroy {
     this.cursor.style.borderRadius = '50%';
     this.cursor.style.width = '50px';
     this.cursor.style.height = '50px';
-    this.innerCursor.style.scale = '1';
-    this.innerCursor.style.transition = 'none';
+    // this.innerCursor.style.scale = '1';
+    // this.innerCursor.style.transition = 'none';
   }
   clearEvents(): void {
     this.cursor.style.borderRadius = '50%';
     this.cursor.style.width = '50px';
     this.cursor.style.height = '50px';
-    this.innerCursor.style.transition = 'none';
-    this.innerCursor.style.scale = '1';
+    // this.innerCursor.style.transition = 'none';
+    // this.innerCursor.style.scale = '1';
     this.currentHover = false;
     this.subscribed.forEach((element: any) => {
       element.removeEventListener('mouseenter', this.startMorphCursor);
@@ -103,7 +103,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscribed = [];
   }
   setCursor() {
-    console.log('Setting cursor');
+    // console.log('Setting cursor');
     this.clearEvents();
     this.ngAfterContentInit();
   }
@@ -111,7 +111,13 @@ export class AppComponent implements OnInit, OnDestroy {
     let a = setInterval(() => {
       document.querySelectorAll('.mv').forEach((element: any) => {
         // console.log(element);
+        this.subscribed.forEach((element: any) => {
+          element.removeEventListener('mouseenter', this.startMorphCursor);
+          element.removeEventListener('mouseleave', this.stopMorphCursor);
+        })
+        this.subscribed = [];
         if (!this.subscribed.includes(element)) {
+          console.log('Adding event listener to', element);
           element.addEventListener('mouseenter', () => {
             this.startMorphCursor(element);
           });
@@ -121,7 +127,7 @@ export class AppComponent implements OnInit, OnDestroy {
           this.subscribed.push(element);
         }
       });
-    }, 500);
+    }, 1000);
     setTimeout(() => {
       clearInterval(a);
     }, 5000);
