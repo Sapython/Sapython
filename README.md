@@ -24,7 +24,7 @@ ____
 [![Deploy to Firebase](https://github.com/Sapython/Sapython/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/Sapython/Sapython/actions/workflows/firebase-hosting-merge.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/sapython/sapython/badge)](https://www.codefactor.io/repository/github/sapython/sapython)
 [![OSSAR](https://github.com/Sapython/Sapython/actions/workflows/ossar-analysis.yml/badge.svg)](https://github.com/Sapython/Sapython/actions/workflows/ossar-analysis.yml)
-[![Codacy Security Scan](https://github.com/Sapython/Sapython/actions/workflows/codacy-analysis.yml/badge.svg)](https://github.com/Sapython/Sapython/actions/workflows/codacy-analysis.yml)
+
 ## Technologies Used
 ![firebase](https://github.com/Sapython/Sapython/raw/master/src/assets/readmeImages/firebase.png)![Google Cloud Platform](https://github.com/Sapython/Sapython/raw/master/src/assets/readmeImages/gcp.png)![Angular](https://github.com/Sapython/Sapython/raw/master/src/assets/readmeImages/angular.png) ![Cloud functions](https://github.com/Sapython/Sapython/raw/master/src/assets/readmeImages/cloudFunctions.png)![Typescript](https://github.com/Sapython/Sapython/raw/master/src/assets/readmeImages/Typescript.png)![Sass](https://github.com/Sapython/Sapython/raw/master/src/assets/readmeImages/sass.png)![HTML](https://github.com/Sapython/Sapython/raw/master/src/assets/readmeImages/HTML.png)
 
