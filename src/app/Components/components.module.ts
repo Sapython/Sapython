@@ -7,6 +7,7 @@ import { MediumCardComponent } from './medium-card/medium-card.component';
 import { SmallCardComponent } from './small-card/small-card.component';
 import { RouterModule } from '@angular/router';
 import { ProjectCardComponent } from './project-card/project-card.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -28,6 +29,7 @@ import { ProjectCardComponent } from './project-card/project-card.component';
     ProjectCardComponent
   ],
   imports: [
+    MatProgressSpinnerModule,
     CommonModule,
     RouterModule,
   ]

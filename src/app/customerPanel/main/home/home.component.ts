@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from '../../core/services/authorization/authorization.service';
-import { ConService } from '../../core/services/con/con.service';
-import { DatabaseService } from '../../core/services/database/database.service';
-import { RemoteConfigEnum, RemoteConfigService } from '../../core/services/remoteConfig/remote-config.service';
+import { ProjectData } from 'src/app/structures/method.structure';
+
 
 @Component({
   selector: 'app-home',
@@ -10,12 +8,7 @@ import { RemoteConfigEnum, RemoteConfigService } from '../../core/services/remot
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(
-    public dataService:DatabaseService,
-    private rc:RemoteConfigService, // TODO: This code is the error
-    private console:ConService,
-    public authService:AuthorizationService,
-    ) {}
+  constructor() {}
   colors = [[255, 60, 125],[60, 60, 255],[60, 161, 255],[247, 182, 40],[255, 98, 84],[114, 33, 255],[77, 255, 249],[92, 255, 168]]
   ngOnInit():void {
     // this.rc.getRemoteConfigByKey(RemoteConfigEnum.projects).then((res:any)=>{
@@ -48,8 +41,30 @@ export class HomeComponent implements OnInit {
     const color = this.colors[this.getRandomInt(0,2)];
     return `rgba(${color[0]}, ${color[1]}, ${color[2]}, 0.8)`;
   }
-  public getProjects(){
-    return this.dataService.getProjects();
+  getProjects():ProjectData[] {
+    let projects:ProjectData[] = []
+    for (let index = 0; index < 4; index++) {
+      projects.push({
+        projectName: 'Project ' + index,
+        projectDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur cursus tincidunt commodo. Nunc justo nisi, vestibulum facilisis porta vestibulum, ultrices volutpat arcu. Quisque nec dui mattis, fringilla magna in, vulputate enim. Fusce ut euismod ligula, id laoreet ex. ',
+        projectTags: ['tag1', 'tag2', 'tag3'],
+        projectFeatures: [
+          {
+            name: 'feature1',
+            icon: '',
+          },
+          {
+            name: 'feature2',
+            icon: '',
+          },
+          {
+            name: 'feature3',
+            icon: '',
+          },
+        ],
+      });
+    }
+    return projects
   }
 }
 

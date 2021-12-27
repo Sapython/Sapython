@@ -1,0 +1,159 @@
+section > img{
+    position: absolute;
+    top:-10px;
+    bottom:-10px;
+    right:-10px;
+    left:-10px;
+    object-fit: cover;
+    object-position:center;
+    width: 110vw;
+    height: 102vh;
+    overflow: clip;
+    filter:blur(10px);
+    transition: all 1s ease-in-out;
+}
+section > img:hover{
+    filter:blur(2px);
+}
+section{
+    overflow: clip;
+}
+section > #mainLogin{
+    width:400px;
+    height:auto;
+    padding:10px;
+    background-color: var(--tertiaryBgColor);
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    transition: box-shadow 2s ease-in-out;
+}
+section > #mainLogin:hover {
+    box-shadow:10px 10px 10px 10px rgba(0,0,0,0.5);
+}
+section > #mainLogin > form {
+    width:300px;
+    height:400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+section > #mainLogin > button {
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+}
+section > #mainLogin > h1{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin:20px;
+}
+section > #mainLogin > form > #input{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    height:30px;
+    margin-bottom:20px;
+    border-radius:20px;
+    padding:10px;
+    background-color: var(--secondaryBgColor);
+}
+section > #mainLogin > form > #input > input{
+    width:100%;
+    height:100%;
+    border:none;
+    color:white;
+    background-color: transparent;
+    outline: none;
+    font-family: var(--fontPrimary);
+    font-size: 20px;
+    font-weight: 500;
+}
+#showhidepwd{
+    color: var(--primary-color);
+    border:none;
+    background-color: transparent;
+    outline: none;
+}
+#showhidepwd > i{
+    font-size: 30px;
+}
+section > #mainLogin > form > button{
+    background-color: var(--primary-color);
+    height:30px;
+    width:70%;
+    margin:0 auto;
+    border:none;
+    font-size: 20px;
+    font-weight:600;
+    color:white;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: all 0.5s ease-in-out;
+}
+section > #mainLogin > form > button:hover{
+    box-shadow:5px 3px 10px 7px rgba(0,0,0, 0.2);
+}
+section > #mainLogin > form > button[disabled]{
+    filter:grayscale(100%);
+    cursor:not-allowed;
+}
+section > #mainLogin > button {
+    width:50px;
+    height:50px;
+    background-color: var(--primary-color);
+    transition: all 0.5s ease-in-out;
+    border:none;
+    border-radius: 50%;
+    color:white;
+}
+section > #mainLogin > button:hover{
+    background-color: var(--secondary-color);
+}
+section > #mainLogin >button > i{
+    font-size:30px;
+}
+#extraInfo{
+    color:white;
+    font-size:15px;
+    font-weight: 600;
+    text-align: center;
+    margin: 20px;
+    font-family: var(--fontPrimary);
+}
+#extraInfo > i{
+    color:var(--primary-color)
+}
+
+small{
+    color:var(--primary-color);
+    font-size:15px;
+    font-weight: 400;
+    text-align: center;
+    margin: 20px;
+    font-family: var(--fontPrimary);
+}
+
+#overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+#overlay > * {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+body{ 
+    filter: blur(5px);
+}

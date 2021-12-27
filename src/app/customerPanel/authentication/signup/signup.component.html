@@ -1,0 +1,85 @@
+<section>
+    <img src="./assets/images/backgroundImages/authBg.jpg" alt="city lights">
+    <div id="mainLogin" [ngStyle]="{'filter': dataProvider.pageSetting.blur ? 'blur(5px)' : 'blur(0px)'}">
+        <h1>Login</h1>
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div id="input">
+                <input type="text" name="FullName" placeholder="Full Name" [formControl]="fullNameControl">
+            </div>
+            <div class="text-danger"
+                *ngIf="fullNameControl && fullNameControl.errors && (fullNameControl.dirty || fullNameControl.touched)">
+                <div *ngIf="fullNameControl.errors?.['required']">
+                    <small>Name is required</small>
+                </div>
+                <div *ngIf="fullNameControl.errors?.['minlength']">
+                    <small>Minimum length for name is 2</small>
+                </div>
+                <div *ngIf="fullNameControl.errors?.['maxlength']">
+                    <small>Maximum length for name is 50</small>
+                </div>
+            </div>
+            <div id="input">
+                <input type="email" name="email" placeholder="Email" [formControl]="emailControl">
+            </div>
+            <div class="text-danger"
+                *ngIf="emailControl && emailControl.errors && (emailControl.dirty || emailControl.touched)">
+                <div *ngIf="emailControl.errors?.['required']">
+                    <small>Email is required</small>
+                </div>
+                <div *ngIf="emailControl.errors?.['email']">
+                    <small>Please provide a correct email address</small>
+                </div>
+            </div>
+            <div id="input">
+                <input [type]="hide ? 'password' : 'text'" name="password" [formControl]="passwordControl" placeholder="Password">
+                <button tabindex="-1" type="button" id="showhidepwd" (click)="hide=!hide">
+                    <i [class]="hide ? 'ri-eye-off-fill' : 'ri-eye-fill'"></i>
+                </button>
+            </div>
+            <div class="text-danger"
+                *ngIf="passwordControl && passwordControl.errors && (passwordControl.dirty || passwordControl.touched)">
+                <div *ngIf="passwordControl.errors?.['required']">
+                    <small>Password is required</small>
+                </div>
+                <div *ngIf="passwordControl.errors?.['minlength']">
+                    <small>Minimum length for password is 8</small>
+                </div>
+                <div *ngIf="passwordControl.errors?.['maxlength']">
+                    <small>Maximum length for password is 50</small>
+                </div>
+            </div>
+            <div id="input">
+                <input [type]="hide ? 'password' : 'text'" name='confirmPassword' [formControl]="confirmPasswordControl"
+                    placeholder="Confirm Password">
+                <button tabindex="-1" type="button" id="showhidepwd" (click)="hide=!hide">
+                    <i [class]="hide ? 'ri-eye-off-fill' : 'ri-eye-fill'"></i>
+                </button>
+            </div>
+            <div class="text-danger"
+                *ngIf="confirmPasswordControl && confirmPasswordControl.errors && (confirmPasswordControl.dirty || confirmPasswordControl.touched)">
+                <div *ngIf="confirmPasswordControl.errors?.['required']">
+                    <small>Please confirm password</small>
+                </div>
+                <div *ngIf="confirmPasswordControl.errors?.['minlength']">
+                    <small>Minimum length for password is 8</small>
+                </div>
+                <div *ngIf="confirmPasswordControl.errors?.['maxlength']">
+                    <small>Maximum length for password is 50</small>
+                </div>
+            </div>
+            <small *ngIf="passwordControl.value !== confirmPasswordControl.value && passwordControl.value != ''">
+                Passwords do not match
+            </small>
+            <button type="submit">Signup</button>
+        </form>
+        <div id="extraInfo">
+            Already have an account <i routerLink="../login">Sign In</i> now !!
+        </div>
+        <button (click)="authService.signInWithGoogle('Signup')">
+            <i class="ri-google-fill"></i>
+        </button>
+    </div>
+</section>
+<div id="overlay" *ngIf="dataProvider.pageSetting.blur">
+    <mat-spinner></mat-spinner>
+</div>

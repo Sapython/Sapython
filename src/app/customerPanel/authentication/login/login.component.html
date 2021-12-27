@@ -1,0 +1,45 @@
+<section>
+    <img src="./assets/images/backgroundImages/authBg.jpg" alt="city lights">
+    <div id="mainLogin">
+        <h1>Login</h1>
+        <form>
+            <div id="input">
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="text-danger"
+                *ngIf="emailControl && emailControl.errors && (emailControl.dirty || emailControl.touched)">
+                <div *ngIf="emailControl.errors?.['required']">
+                    <small>Email is required</small>
+                </div>
+                <div *ngIf="emailControl.errors?.['email']">
+                    <small>Please provide a correct email address</small>
+                </div>
+            </div>
+            <div id="input">
+                <input [type]="hide ? 'password' : 'text'" placeholder="Password">
+                <button type="button" id="showhidepwd" (click)="hide=!hide">
+                    <i [class]="hide ? 'ri-eye-off-fill' : 'ri-eye-fill'"></i>
+                </button>
+            </div>
+            <div class="text-danger"
+                *ngIf="passwordControl && passwordControl.errors && (passwordControl.dirty || passwordControl.touched)">
+                <div *ngIf="passwordControl.errors?.['required']">
+                    <small>Password is required</small>
+                </div>
+                <div *ngIf="passwordControl.errors?.['minlength']">
+                    <small>Minimum length for password is 8</small>
+                </div>
+                <div *ngIf="passwordControl.errors?.['maxlength']">
+                    <small>Maximum length for password is 50</small>
+                </div>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div id="extraInfo">
+            Don't have an account <i routerLink="../signup">Sign Up</i> now !!
+        </div>
+        <button type="button" (click)="authService.signInWithGoogle('Login')">
+            <i class="ri-google-fill"></i>
+        </button>
+    </div>
+</section>

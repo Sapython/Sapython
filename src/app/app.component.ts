@@ -2,17 +2,21 @@ import {
   AfterContentInit,
   AfterViewInit,
   Component,
+  Inject,
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { Observable, fromEvent } from 'rxjs';
-import { throttleTime } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
+import { fader } from './route-animations';
+import { RouterOutlet } from '@angular/router';
+import { AuthencationService } from './services/authencation.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnDestroy {
   mouseSubscribe = fromEvent(document.body, 'mousemove');
   mouseClickSubscribe = fromEvent(document.body, 'mousedown');
   subscribed: Element[] = [];
@@ -20,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
   cursor: any = '';
   // innerCursor: any = '';
   customMouse: boolean =  false;
-
+  constructor(private authService:AuthencationService) {}
   ngOnInit(): void {
     // window.onmouseover=function(e) {
     //   console.log(e);
@@ -104,37 +108,36 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   setCursor() {
     // console.log('Setting cursor');
-    this.clearEvents();
-    this.ngAfterContentInit();
+    // this.clearEvents();
+    // this.ngAfterContentInit();
   }
   ngAfterContentInit(): void {
-    let a = setInterval(() => {
-      document.querySelectorAll('.mv').forEach((element: any) => {
-        // console.log(element);
-        this.subscribed.forEach((element: any) => {
-          element.removeEventListener('mouseenter', this.startMorphCursor);
-          element.removeEventListener('mouseleave', this.stopMorphCursor);
-        })
-        this.subscribed = [];
-        if (!this.subscribed.includes(element)) {
-          console.log('Adding event listener to', element);
-          element.addEventListener('mouseenter', () => {
-            this.startMorphCursor(element);
-          });
-          element.addEventListener('mouseleave', () => {
-            this.stopMorphCursor();
-          });
-          this.subscribed.push(element);
-        }
-      });
-    }, 1000);
-    setTimeout(() => {
-      clearInterval(a);
-    }, 5000);
+    // let a = setInterval(() => {
+    //   document.querySelectorAll('.mv').forEach((element: any) => {
+    //     // console.log(element);
+    //     this.subscribed.forEach((element: any) => {
+    //       element.removeEventListener('mouseenter', this.startMorphCursor);
+    //       element.removeEventListener('mouseleave', this.stopMorphCursor);
+    //     })
+    //     this.subscribed = [];
+    //     if (!this.subscribed.includes(element)) {
+    //       console.log('Adding event listener to', element);
+    //       element.addEventListener('mouseenter', () => {
+    //         this.startMorphCursor(element);
+    //       });
+    //       element.addEventListener('mouseleave', () => {
+    //         this.stopMorphCursor();
+    //       });
+    //       this.subscribed.push(element);
+    //     }
+    //   });
+    // }, 1000);
+    // setTimeout(() => {
+    //   clearInterval(a);
+    // }, 5000);
   }
   title = 'Sapython';
   ngOnDestroy(): void {
     console.log('Destroying');
-    alert('Destroying');
   }
 }

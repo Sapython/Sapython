@@ -20,14 +20,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/Sapython",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/robots.txt",
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest"
@@ -35,11 +34,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-            ],
+            "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json",
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -108,13 +105,18 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "scripts": []
           }
         },
         "deploy": {
           "builder": "@angular/fire:deploy",
-          "options": {}
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Sapython:build:production",
+            "firebaseProject": "sapython-f016a",
+            "firebaseHostingSite": "sapython-f016a"
+          }
         }
       }
     }

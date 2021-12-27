@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProjectData } from 'src/app/dataStructures';
+import { ProjectData } from 'src/app/structures/method.structure';
+
 
 @Component({
   selector: 'app-project-card',

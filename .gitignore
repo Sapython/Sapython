@@ -1,7 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/.angular
 /dist
 /tmp
 /out-tsc
@@ -32,6 +31,7 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
@@ -44,4 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-.firebase/hosting.ZGlzdA.cache
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

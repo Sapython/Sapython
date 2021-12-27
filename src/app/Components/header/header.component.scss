@@ -3,6 +3,7 @@
 // Animtions end
 
 nav {
+  position: fixed;
   display: flex;
   justify-content: space-around;
   background-color: rgb(var(--headerColor));
@@ -19,6 +20,7 @@ nav {
     div {
       width: 50px;
       img {
+        border-radius: 50%;
         width: 50px;
         height: 50px;
       }
@@ -45,6 +47,43 @@ nav {
         }
       }
     }
+  }
+}
+nav > div { 
+  button {
+    font-size: 25px;
+    color:#3ca1ff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    i{
+      animation: fadeIn 0.3s linear;
+      transition: all 0.3s;
+    }
+    i:nth-child(2){
+      // color:#2d3444;
+      animation: offColorfadeIn 0.5s linear forwards;
+    }
+  }
+  // button:nth-child(2){
+  //   color:#2d3444;
+  //   // animation: offColorfadeIn 0.5s linear;
+  // }
+}
+@keyframes offColorfadeIn{
+  0%{
+    color: #3ca1ff;
+  }
+  100%{
+    color: #ef506f;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 .scrolled {

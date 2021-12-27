@@ -10,8 +10,13 @@
             <li><a routerLink="about" class="mv">About</a></li>
             <li><a href="#" class="mv">Contact</a></li>
         </ul>
-        <div class="user">
-            <img src="./assets/icons/icon-512x512.png" alt="">
+        <button (click)="toggleNotificationFunction()">
+            <i [hidden]="!toggleNotification" class="ri-notification-4-fill"></i>
+            <i [hidden]="toggleNotification" class="ri-notification-off-fill" ></i>
+        </button>
+        <div class="user" *ngIf="dataProvider.loggedIn">
+            <mat-progress-spinner [diameter]="30" color="accent" mode="indeterminate" *ngIf="dataProvider.gettingUserData"></mat-progress-spinner>
+            <img [src]="dataProvider.userData?.photoURL" *ngIf="!dataProvider.gettingUserData" alt="">
         </div>
     </div>
 </nav>

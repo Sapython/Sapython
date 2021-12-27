@@ -1,4 +1,7 @@
-<div id="cursor" ></div>
+<!-- <div id="cursor" ></div> -->
 <!-- <div id="cursor-inner" ></div> -->
 <div id="cursorClickAnimation" ></div>
-<router-outlet (activate)="setCursor()"></router-outlet>
+
+<main class="content">
+    <router-outlet (activate)="setCursor()" #outlet="outlet"></router-outlet>
+</main>

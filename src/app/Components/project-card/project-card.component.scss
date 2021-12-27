@@ -12,11 +12,9 @@ div{
     justify-content:center;
     align-items:center;
     padding: 10px;
-    transition: all 2s ease-in-out;
+    transition: border-radius .5s ease-in-out;
 }
-div:hover {
-    box-shadow: 7px 5px 30px 20px #15171f;
-}
+
 ul, li {
     list-style: none;
     margin: 0;

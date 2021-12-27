@@ -1,7 +1,4 @@
 {
-  "projects": {
-    "default": "sapython-f016a"
-  },
   "targets": {
     "sapython-f016a": {
       "hosting": {
@@ -10,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "sapython-f016a"
   }
 }

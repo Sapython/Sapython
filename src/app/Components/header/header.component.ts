@@ -1,6 +1,6 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { throwError } from 'rxjs';
-
+import { Component, OnInit} from '@angular/core';
+import { ToastService } from 'src/app/commonServices/toastService/toast.service';
+import { DataProvider } from 'src/app/providers/data.provider';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,24 +8,17 @@ import { throwError } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   a:any=""
-  // @ViewChild('nav', {static: false}) nav: any;
-  // scrollAmount: number=0;
-  // constructor() {
-  //   setInterval(() =>{
-  //     console.log(this.scrollAmount);
-  //   },1000)
-  //  }
-  // @HostListener('window:scroll', ['$event'])
-  // onWindowScroll(event:any) {
-  //   this.scrollAmount = window.pageYOffset;
-  //   if (this.scrollAmount > 50) {
-  //     this.nav.nativeElement.classList.add('scrolled');
-  //   } else {
-  //     this.nav.nativeElement.classList.remove('scrolled');
-  //   }
-  // }
+  toggleNotification:boolean=false;
+  constructor(public  toastService: ToastService,public dataProvider:DataProvider) { }
+  toggleNotificationFunction(){
+    this.toggleNotification=!this.toggleNotification;
+    if (this.toggleNotification) {
+      this.toastService.presentToast("Notifications enabled",1000);
+    } else {
+      this.toastService.presentToast("Notifications disabled",1000);
+    }
+  }
   ngOnInit(): void {
-    
   }
 
 }

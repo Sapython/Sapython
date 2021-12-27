@@ -2,8 +2,9 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 // Plus imports for other components in your app.
-
+@import url("../node_modules/remixicon/fonts/remixicon.css");
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
@@ -39,6 +40,7 @@ $Sapython-theme: mat.define-light-theme((
   src: url(assets/fonts/Vintage_Modern.woff) format("opentype");
 }
 :root {
+  background-color: rgb(15, 21, 26);
   --primary-color: #f0506e;
   --secondary-color: #0f6ecd;
   --tertiary-color: #f2f2f2;
