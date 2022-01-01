@@ -50,19 +50,24 @@ nav {
   }
 }
 nav > div { 
-  button {
-    font-size: 25px;
-    color:#3ca1ff;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    i{
-      animation: fadeIn 0.3s linear;
-      transition: all 0.3s;
-    }
-    i:nth-child(2){
-      // color:#2d3444;
-      animation: offColorfadeIn 0.5s linear forwards;
+  .actions{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100px;
+    button {
+      font-size: 25px;
+      color:#3ca1ff;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      i{
+        animation: fadeIn 0.3s linear;
+        transition: all 0.3s;
+      }
+      i:nth-child(2){
+        // color:#2d3444;
+        animation: offColorfadeIn 0.5s linear forwards;
+      }
     }
   }
   // button:nth-child(2){

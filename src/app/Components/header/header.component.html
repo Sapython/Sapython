@@ -10,10 +10,15 @@
             <li><a routerLink="about" class="mv">About</a></li>
             <li><a href="#" class="mv">Contact</a></li>
         </ul>
-        <button (click)="toggleNotificationFunction()">
-            <i [hidden]="!toggleNotification" class="ri-notification-4-fill"></i>
-            <i [hidden]="toggleNotification" class="ri-notification-off-fill" ></i>
-        </button>
+        <div class="actions">
+            <button (click)="toggleNotificationFunction()">
+                <i [hidden]="!toggleNotification" class="ri-notification-4-fill"></i>
+                <i [hidden]="toggleNotification" class="ri-notification-off-fill" ></i>
+            </button>
+            <button>
+                <i class="ri-terminal-box-fill"></i>
+            </button>
+        </div>
         <div class="user" *ngIf="dataProvider.loggedIn">
             <mat-progress-spinner [diameter]="30" color="accent" mode="indeterminate" *ngIf="dataProvider.gettingUserData"></mat-progress-spinner>
             <img [src]="dataProvider.userData?.photoURL" *ngIf="!dataProvider.gettingUserData" alt="">
