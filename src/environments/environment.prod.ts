@@ -10,5 +10,6 @@ export const environment = {
     messagingSenderId: '796109016505',
     measurementId: 'G-9HWLXLES8L',
   },
-  production: true
+  production: true,
+  TAILWIND_MODE: 'build'
 };

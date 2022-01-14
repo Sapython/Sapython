@@ -8,6 +8,10 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 @include mat.core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
@@ -39,6 +43,11 @@ $Sapython-theme: mat.define-light-theme((
   font-family: Vintage;
   src: url(assets/fonts/Vintage_Modern.woff) format("opentype");
 }
+body {
+  scroll-snap-type: proximity;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y proximity;
+}
 :root {
   background-color: rgb(15, 21, 26);
   --primary-color: #f0506e;
@@ -48,9 +57,9 @@ $Sapython-theme: mat.define-light-theme((
   --info-color: #00b0ff;
   --warning-color: #ffd166;
   --danger-color: #ff4e50;
-  --primaryBgColor: 42, 47, 59;
+  --primaryBgColor: 15, 23, 42;
   // --primaryBgColor:34, 41, 54;
-  --headerColor:27, 32, 42;
+  --headerColor:12, 17, 28;
   --secondaryBgColor: #383e4b;
   --tertiaryBgColor: #2b303a;
   --extraDarkBgColor: #12151b;
