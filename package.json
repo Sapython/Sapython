@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve & ngtw watch",
+    "build": "ngtw build && ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "prestart": "ngtw build"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~13.1.1",
     "@angular/router": "~13.1.1",
     "@angular/service-worker": "~13.1.1",
+    "daisyui": "^1.23.0",
     "firebase": "^9.4.0",
     "particles.js": "^2.0.0",
     "remixicon": "^2.5.0",
@@ -36,7 +38,7 @@
     "@angular/compiler-cli": "~13.1.1",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
-    "autoprefixer": "^10.4.1",
+    "autoprefixer": "^10.4.2",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -44,7 +46,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.11",
+    "tailwindcss": "^3.0.15",
     "typescript": "~4.4.3"
   }
 }
