@@ -24,7 +24,7 @@
     "@angular/router": "~13.1.1",
     "@angular/service-worker": "~13.1.1",
     "daisyui": "^1.23.0",
-    "firebase": "^9.4.0",
+    "firebase": "^10.2.0",
     "particles.js": "^2.0.0",
     "remixicon": "^2.5.0",
     "rxfire": "^6.0.0",
